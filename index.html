@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi 19 Video Cerita Islami - jualinjualan</title>
+    <style>
+        :root {
+            /* Skema Warna Disesuaikan dengan Logo & Banner */
+            --bg-color: #FFFDF5;         /* Background utama (Krem gading hangat) */
+            --card-bg: #FFFFFF;           /* Background kartu (Putih bersih) */
+            --primary-color: #E5A823;     /* Kuning Mustard / Gold Logo */
+            --primary-hover: #D49615;     /* Gold lebih gelap untuk efek hover tombol */
+            --text-dark: #5C4033;         /* Cokelat Tua untuk teks judul & tombol */
+            --text-muted: #8C7A6B;        /* Cokelat Lembut untuk teks sekunder */
+            --border-color: #F7E7C4;      /* Border krem keemasan halus */
+            --accent-bg: #FFF9EB;         /* Background list & box petunjuk (Kuning pastel) */
+            --error-color: #D9534F;       /* Merah lembut untuk pesan error */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(92, 64, 51, 0.08);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        /* Logo Styling */
+        .logo-img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(229, 168, 35, 0.2);
+        }
+
+        /* Banner Image Styling */
+        .banner-img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 16px rgba(92, 64, 51, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Label Styling */
+        .form-label {
+            display: block;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* Form Kode Access */
+        #login-section {
+            padding: 5px 0;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            border-radius: 12px;
+            box-sizing: border-box;
+            margin-bottom: 14px;
+            text-align: center;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input[type="password"]:focus {
+            border-color: var(--primary-color);
+            background-color: var(--card-bg);
+            box-shadow: 0 0 0 3px rgba(229, 168, 35, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(229, 168, 35, 0.3);
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .error-msg {
+            color: var(--error-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Box Petunjuk Penggunaan */
+        .instructions {
+            background-color: var(--accent-bg);
+            border: 1.5px dashed var(--primary-color);
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-top: 18px;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* List Content */
+        #content-section {
+            display: none;
+            text-align: left;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .video-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 420px;
+            overflow-y: auto;
+        }
+
+        /* Custom Scrollbar untuk List */
+        .video-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .video-list::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .video-item {
+            margin-bottom: 10px;
+        }
+
+        .video-item a {
+            display: flex;
+            align-items: center;
+            padding: 13px 15px;
+            background-color: var(--accent-bg);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .video-item a:hover {
+            background-color: #FFF2D1;
+            border-color: var(--primary-color);
+            transform: translateX(4px);
+        }
+
+        .video-item span.number {
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo Toko (Tampil di Semua Halaman) -->
+        <img src="1.jpeg" alt="Logo Jualinjualan" class="logo-img">
+        
+        <!-- Banner Produk (Tampil di Semua Halaman) -->
+        <img src="banner 19 video islami anak.png" alt="Banner 19 Video Islami Anak" class="banner-img">
+
+        <!-- Section 1: Halaman Login / Masukkan Kode -->
+        <div id="login-section">
+            <label for="access-code" class="form-label">🔑 Masukkan Kode Akses:</label>
+            <input type="password" id="access-code" placeholder="Ketik kode di sini...">
+            <button onclick="checkCode()">Buka Video</button>
+            <div id="error-message" class="error-msg">Kode salah! Silakan periksa kembali kode Anda.</div>
+            
+            <!-- Petunjuk Penggunaan -->
+            <div class="instructions">
+                📌 <strong>Petunjuk Penggunaan:</strong><br>
+                Setelah memilih dan menonton video di Canva, tekan tombol <strong>Back (Kembali)</strong> pada browser HP Anda untuk kembali ke halaman ini dan memilih cerita lainnya.
+            </div>
+        </div>
+
+        <!-- Section 2: Senarai 19 Video Canva -->
+        <div id="content-section">
+            <div class="section-title">✨ Pilih Cerita untuk Diputar:</div>
+            
+            <ul class="video-list">
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPah5C69I/GsHyY6jqIHLNu6NTfpFSNQ/view?utm_content=DAHPah5C69I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h39e7a26268" target="_self"><span class="number">1</span> Petualangan Afiq Menuju Masjid</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPa_jl6Yw/fv8GZ6SKtfSdQMYIkVz4Gw/view?utm_content=DAHPa_jl6Yw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3d2ae2316a" target="_self"><span class="number">2</span> Kebaikan Hati Aisyah Berbagi dengan Makanan</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPawehEuc/o1vFuyKOtgs8UIPOSEESuQ/view?utm_content=DAHPawehEuc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc08bd4bf87" target="_self"><span class="number">3</span> Petualangan Zain Misi Kebersihan yang Mulia</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbCfYgIU/Ib7FNeWecpPOgoizmGLLXA/view?utm_content=DAHPbCfYgIU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h01ddc1a89a" target="_self"><span class="number">4</span> Senyum Sederhana Kebaikan yang Besar</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbP3akZU/67sJGPMpedajrjd7AP_N8w/view?utm_content=DAHPbP3akZU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h41da750afc#2" target="_self"><span class="number">5</span> Mencintai Orang Tua</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbAGyMKc/0zp3TWhP-1RU6zEP4YAp3A/view?utm_content=DAHPbAGyMKc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h73cfac3c6d" target="_self"><span class="number">6</span> Langkah Kecil Kebaikan Besar</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbV1jKAE/sp4Hx-lDlc11p0r_LnjM-g/view?utm_content=DAHPbV1jKAE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd60730d6c6" target="_self"><span class="number">7</span> Penemu Islam yang Menginspirasi</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbe1GYeA/SzhEfGslWfqUa7kR_blpuA/view?utm_content=DAHPbe1GYeA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2681f40e5d" target="_self"><span class="number">8</span> Petualangan Hawwa Belajar Puasa</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbS2toWI/CNc_c_e8EQmbqpMCPCeuBw/view?utm_content=DAHPbS2toWI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1e3801af89" target="_self"><span class="number">9</span> Kekuatan Bismillah dan Alhamdulilah</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbTm9iZ4/SmzbAX3MnR-e0Jk-JCJ39Q/view?utm_content=DAHPbTm9iZ4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3c815c146e" target="_self"><span class="number">10</span> Cinta Ahmad pada Orang Tua</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbcEzRlw/huAiH-EdojCVG0YyUHw4Vg/view?utm_content=DAHPbcEzRlw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9e6e5f4a31" target="_self"><span class="number">11</span> Ali dan Sikap Hormat</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbapCBDQ/3_UANb1pvmvg_X-TEI-KBw/view?utm_content=DAHPbapCBDQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h44a7af4602" target="_self"><span class="number">12</span> Kisah Umar Berbicara Baik dan Sopan</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbrjrzZM/rYWH9xmBROsXLgI6Ov4h-Q/view?utm_content=DAHPbrjrzZM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb7d6683c7f" target="_self"><span class="number">13</span> Kejujuran Zaid</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbhR1g1U/IqkUIIo_kH9dahFXZmFGfQ/view?utm_content=DAHPbhR1g1U&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h24ca5150d5" target="_self"><span class="number">14</span> Kebaikan Ibrahim</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbvEb-A4/qsNdpSKzfrKF2hmidHfQdA/view?utm_content=DAHPbvEb-A4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8a3aaada3f" target="_self"><span class="number">15</span> Hasan yang Bersyukur</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbmkyjRU/0Td9W7OEbx-1T-3_UcXsvQ/view?utm_content=DAHPbmkyjRU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf268ad2038" target="_self"><span class="number">16</span> Pentingnya Berdoa dan Sholat</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPbvGBU7M/om-oKIDAbycVXGPgfXnvUQ/view?utm_content=DAHPbvGBU7M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h91ebaa4433" target="_self"><span class="number">17</span> Amanahnya Yusuf</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPb9GPY3I/yoebR6nO1nh5T5yHHLnRiw/view?utm_content=DAHPb9GPY3I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h38e4e13f21" target="_self"><span class="number">18</span> Amir dan Pentingnya Menjaga Kebersihan</a></li>
+                <li class="video-item"><a href="https://www.canva.com/design/DAHPb-YkFPA/KwZaJ63TdcCIdqlDrRIHxg/view?utm_content=DAHPb-YkFPA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3c36d1da32#1" target="_self"><span class="number">19</span> Teladan, Sabar dan Pemaaf</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-text">prompt by : jualinjualan</div>
+    </div>
+
+    <script>
+        function showVideoList() {
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("content-section").style.display = "block";
+        }
+
+        function checkCode() {
+            const inputCode = document.getElementById("access-code").value.trim();
+            const errorMessage = document.getElementById("error-message");
+            
+            if (inputCode === "jualinjualan") {
+                // Simpan status login di sesi browser
+                sessionStorage.setItem("isLoggedIn", "true");
+                showVideoList();
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+
+        // Cek status saat halaman pertama kali dimuat atau di-reload saat klik Back
+        window.onload = function() {
+            if (sessionStorage.getItem("isLoggedIn") === "true") {
+                showVideoList();
+            }
+        };
+
+        document.getElementById("access-code").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkCode();
+            }
+        });
+    </script>
+
+</body>
+</html>
